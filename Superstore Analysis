@@ -1,0 +1,30 @@
+-- order items by price
+
+SELECT item_name, price
+FROM superstore
+ORDER BY price desc
+;
+
+-- items priced at $50 or >
+
+SELECT item_name, MIN (price)
+FROM superstore
+WHERE price > 50
+GROUP BY item_name
+ORDER BY price asc
+;
+
+-- average price of "Kitchen Supplies"
+
+SELECT AVG (price)
+FROM superstore
+GROUP BY 'Kitchen Supplies'
+;
+
+-- quantity in stock per item
+
+SELECT item_name, SUM (stock_quantity)
+FROM superstore
+GROUP BY item_name
+ORDER BY stock_quantity desc 
+; 
